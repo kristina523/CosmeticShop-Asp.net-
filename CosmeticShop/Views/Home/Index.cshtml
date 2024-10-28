@@ -1,0 +1,17 @@
+﻿
+@model IEnumerable<CosmeticShop.Models.Product>;
+@{
+    ViewBag.Title = "Все продукты";
+}
+<a asp-action="Create" asp-controller="Home">Добавить продукт</a>
+<table class="table">
+        @foreach (var item in Model)
+        {
+            <tr><td>@item.Names</td>
+                <td>
+                    <a asp-action="DetailsProduct" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+                </td></tr>
+        }
+</table>
